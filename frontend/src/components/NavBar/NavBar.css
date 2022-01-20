@@ -1,0 +1,33 @@
+.navbar-container {
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+}
+
+.navbar {
+    padding: 0;
+    height: 50px;
+    background-color: #0080ff !important;
+}
+
+.navbar div {
+    padding-top: 15px;
+    padding-bottom: 5px;
+    background-color: #0080ff !important;
+    border-radius: 0;
+    
+}
+
+.navbar a {
+    color: #fffffd !important;
+    font-weight: bold;
+}
+
+.navbar-logo {
+    height: 70px;
+    position: relative;
+    top: 5px;
+}
