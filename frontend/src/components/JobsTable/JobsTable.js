@@ -3,30 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {
     Table
 } from "reactstrap";
+import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
+// import * as JobActions from '../../actions/jobActions';
 import './JobsTable.css'
 
-// core components
-
-
-function JobsTable() {
-    const defaultJobs = [
-        {
-            id: 1,
-            description: 'Add new ideas to Skedulo Hackathon 2022',
-            status: 'Done'
-        },
-        {
-            id: 2,
-            description: 'Vote for great ideas in Skedulo Hackathon 2022',
-            status: 'To Do'
-        },
-        {
-            id: 3,
-            description: 'Complete tasks before Hackathon',
-            status: 'In Progress'
-        },
-    ]
-    const [jobs, setJobs] = useState(defaultJobs)
+function JobsTable({jobs}) {
 
   return (
     <div className="jobs-table-container">
@@ -45,9 +27,9 @@ function JobsTable() {
                 </tr>
             </thead>
             <tbody>
-                {jobs.map(job => {
+                {jobs.map((job, index) => {
                     return (
-                        <tr>
+                        <tr key={index}>
                             <th scope="row">
                                 {job.id}
                             </th>
@@ -66,4 +48,10 @@ function JobsTable() {
   );
 }
 
-export default JobsTable;
+function mapStateToProps(state) {
+    return {
+        jobs: state.jobReducer
+    };
+}
+
+export default connect(mapStateToProps)(JobsTable);

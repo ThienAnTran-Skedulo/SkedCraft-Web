@@ -1,15 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { RealtimeProvider } from '@space-kit/redis-realtime-react'
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import allReducers from "./reducers";
+
+const store = createStore(allReducers);
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <RealtimeProvider baseUrl='localhost:5000' db="skedjob" secure={false}> */}
-      <App />
-    {/* </RealtimeProvider> */}
+    <Provider store={store}>
+        {/* <RealtimeProvider baseUrl='localhost:5000' db="skedjob" secure={false}> */}
+          <App />
+        {/* </RealtimeProvider> */}
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
